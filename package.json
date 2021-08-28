@@ -1,0 +1,19 @@
+{
+  "name": "api-crud",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "serve": "ts-node-dev --inspect --transpileOnly --ignore-watch node_modules src/server.ts",
+    "start": "ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "ts-node": "^10.2.1",
+    "ts-node-dev": "^1.1.8"
+  },
+  "dependencies": {
+    "@types/node": "^16.7.4",
+    "typescript": "^4.4.2"
+  }
+}
