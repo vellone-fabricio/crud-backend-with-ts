@@ -1,0 +1,71 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Ioasys CRUD-API Documentation",
+    "description": "Contain every route disponible in this API",
+    "version": "1.0.0",
+    "contacts": "fabriciovellone@gmail.com"
+  },
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Create an User",
+        "description": "Create a new User in DB",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "full_name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "birth_date": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "education": {
+                    "type": "string",
+                    "enum": ["infantil", "fundamental", "medio", "superior", "pos_graducao", "mestrado", "doutorado"]
+                  }
+                }
+              },
+              "example": {
+                "full_name": "Fabricio Vellone",
+                "email": "fabriciovellone@gmail.com",
+                "password": "1234",
+                "birth_date": "17/09/1996",
+                "state": "Sao Paulo",
+                "city": "Monte Alto",
+                "education": "mestrado"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Email already exists!"
+          },
+          "500": {
+            "description": "Unhandled error in creation"
+          }
+        }
+      }
+    }
+  }
+}
