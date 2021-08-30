@@ -7,11 +7,46 @@
     "contacts": "fabriciovellone@gmail.com"
   },
   "paths": {
+    "/sessions": {
+      "post": {
+        "summary": "Create a connect session for an user",
+        "description": "Login with your credentials",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "email": "fabriciovellone@gmail.com",
+                "password": "1234"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfull"
+          },
+          "400": {
+            "description": "Email or password incorrects!"
+          }
+        }
+      }
+    },
     "/users": {
       "post": {
         "tags": ["User"],
         "summary": "Create an User",
-        "description": "Create a new User in DB",
+        "description": "Create a new User in the DB",
         "requestBody": {
           "content": {
             "application/json": {
@@ -63,6 +98,24 @@
           },
           "500": {
             "description": "Unhandled error in creation"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "delete": {
+        "tags": ["User"],
+        "summary": "Delete an User",
+        "description": "Delete an User in the DB",
+        "responses": {
+          "200": {
+            "description": "Successfull"
+          },
+          "400": {
+            "description": "User not found!"
+          },
+          "401": {
+            "description": "Token missing!"
           }
         }
       }
