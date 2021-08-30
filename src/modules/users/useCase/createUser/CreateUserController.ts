@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { container } from "tsyringe";
 import { CreateUserUseCase } from "./CreateUserUseCase";
 
-class CreateUsersController {
+class CreateUserController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { birth_date, city, education, email, full_name, password, state } = request.body;
     const createUserUseCase = container.resolve(CreateUserUseCase);
@@ -12,4 +12,4 @@ class CreateUsersController {
   }
 }
 
-export { CreateUsersController };
+export { CreateUserController };
