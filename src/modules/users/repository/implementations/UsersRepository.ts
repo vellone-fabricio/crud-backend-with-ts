@@ -1,6 +1,6 @@
 import { getRepository, Repository } from "typeorm";
 import { AppError } from "../../../../errors/AppError";
-import { IUsersData } from "../../dtos/IUsersData";
+import { IUsersDTO } from "../../dtos/IUsersDTO";
 import { Users } from "../../entities/Users";
 import { IUsersRepository } from "../IUsersRepository";
 
@@ -11,7 +11,7 @@ class UsersRepository implements IUsersRepository {
     this.repository = getRepository(Users);
   }
 
-  async create({ birth_date, city, education, email, full_name, password, state }: IUsersData): Promise<void> {
+  async create({ birth_date, city, education, email, full_name, password, state }: IUsersDTO): Promise<void> {
     const user = this.repository.create({
       birth_date,
       city,

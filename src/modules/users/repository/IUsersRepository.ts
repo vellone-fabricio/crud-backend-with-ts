@@ -1,7 +1,7 @@
-import { IUsersData } from "../dtos/IUsersData";
+import { IUsersDTO } from "../dtos/IUsersDTO";
 
 interface IUsersRepository {
-  create(data: IUsersData): Promise<void>;
+  create(data: IUsersDTO): Promise<void>;
 }
 
 export { IUsersRepository };

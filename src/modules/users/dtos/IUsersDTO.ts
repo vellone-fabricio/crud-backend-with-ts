@@ -1,6 +1,6 @@
 import { TypeEducationEnum } from "../entities/Users";
 
-export interface IUsersData {
+export interface IUsersDTO {
   full_name: string;
   email: string;
   password: string;
