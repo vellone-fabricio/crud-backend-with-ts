@@ -12,10 +12,10 @@ class UsersRepository implements IUsersRepository {
     this.repository = getRepository(Users);
   }
 
-  async list(): Promise<Users[]> {
-    const allUsers = await this.repository.find();
+  async list(filters: Partial<IUsersDTO>): Promise<Users[]> {
+    const allFilteredUsers = await this.repository.find(filters);
 
-    return allUsers;
+    return allFilteredUsers;
   }
 
   async delete(id: number): Promise<void> {
