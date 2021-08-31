@@ -35,7 +35,7 @@ class UsersRepository implements IUsersRepository {
       ...user,
       ...updateData,
     } as Users;
-    console.log(newUser);
+
     await this.repository.save(newUser);
     return this.removePasswordFromPayload(newUser);
   }
