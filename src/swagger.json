@@ -226,6 +226,42 @@
             "description": "Token missing!"
           }
         }
+      },
+      "get": {
+        "tags": ["User"],
+        "summary": "List a specific User",
+        "description": "Get a specific user in the DB, if you are an Admin, you can see every user, otherwise just yours",
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": 33,
+                    "full_name": "Fabricio Vellone",
+                    "email": "fabriciovellone1@gmail.com",
+                    "birth_date": "17/09/1996",
+                    "state": "Sao Paulo",
+                    "city": "Monte Alto",
+                    "education": "mestrado",
+                    "isAdmin": false,
+                    "created_at": "2021-08-30T23:57:53.685Z"
+                  }
+                ]
+              }
+            }
+          },
+          "401": {
+            "description": "Token missing!"
+          },
+          "403": {
+            "description": "You don't have permission"
+          },
+          "500": {
+            "description": "Unhandled error in creation"
+          }
+        }
       }
     }
   }
