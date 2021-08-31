@@ -4,6 +4,7 @@ import { Users } from "../entities/Users";
 interface IUsersRepository {
   create(data: IUsersDTO): Promise<void>;
   delete(id: number): Promise<void>;
+  list(): Promise<Users[]>;
   findByEmail(email: string): Promise<Users>;
   findById(id: number): Promise<Users>;
 }

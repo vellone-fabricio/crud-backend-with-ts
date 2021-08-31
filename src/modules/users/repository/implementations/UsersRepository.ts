@@ -12,6 +12,12 @@ class UsersRepository implements IUsersRepository {
     this.repository = getRepository(Users);
   }
 
+  async list(): Promise<Users[]> {
+    const allUsers = await this.repository.find();
+
+    return allUsers;
+  }
+
   async delete(id: number): Promise<void> {
     await this.repository.delete(id);
   }
