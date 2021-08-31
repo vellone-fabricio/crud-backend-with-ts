@@ -38,6 +38,9 @@
           },
           "400": {
             "description": "Email or password incorrects!"
+          },
+          "500": {
+            "description": "Unhandled error in creation"
           }
         }
       }
@@ -95,6 +98,67 @@
           },
           "400": {
             "description": "Email already exists!"
+          },
+          "500": {
+            "description": "Unhandled error in creation"
+          }
+        }
+      },
+      "get": {
+        "tags": ["User"],
+        "summary": "Get all Users",
+        "description": "List all current Users in the DB",
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": 33,
+                    "full_name": "Fabricio Vellone",
+                    "email": "fabriciovellone1@gmail.com",
+                    "password": "$2b$08$aDhkgpr6/r8e1S.Hs.W5ROkXeNgVQLLWgPTE3SGJCU8LBsw.HIxNK",
+                    "birth_date": "17/09/1996",
+                    "state": "Sao Paulo",
+                    "city": "Monte Alto",
+                    "education": "mestrado",
+                    "isAdmin": false,
+                    "created_at": "2021-08-30T23:57:53.685Z"
+                  },
+                  {
+                    "id": 34,
+                    "full_name": "Fabricio Vellone",
+                    "email": "fabriciovellone2@gmail.com",
+                    "password": "$2b$08$8oB7swGeX7tpl7wy/up/TOPLD7On7DR3DwVmG/BSxFlHUO64FCOZa",
+                    "birth_date": "17/09/1996",
+                    "state": "Sao Paulo",
+                    "city": "Monte Alto",
+                    "education": "mestrado",
+                    "isAdmin": false,
+                    "created_at": "2021-08-30T23:57:56.118Z"
+                  },
+                  {
+                    "id": 31,
+                    "full_name": "Fabricio Vellone",
+                    "email": "fabriciovellone@gmail.com",
+                    "password": "$2b$08$ZVtm.ada00OGhQb5dzcAG.J/PGBL/eb7OQ.aKJWz5k7pCeZxPHSJS",
+                    "birth_date": "17/09/1996",
+                    "state": "Sao Paulo",
+                    "city": "Monte Alto",
+                    "education": "mestrado",
+                    "isAdmin": true,
+                    "created_at": "2021-08-30T23:41:10.589Z"
+                  }
+                ]
+              }
+            }
+          },
+          "401": {
+            "description": "Token missing!"
+          },
+          "403": {
+            "description": "You don't have permission"
           },
           "500": {
             "description": "Unhandled error in creation"
