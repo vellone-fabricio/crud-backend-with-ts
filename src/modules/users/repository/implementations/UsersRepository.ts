@@ -18,8 +18,13 @@ class UsersRepository implements IUsersRepository {
     return allFilteredUsers;
   }
 
-  async delete(id: number): Promise<void> {
-    await this.repository.delete(id);
+  async delete(id: number): Promise<number> {
+    const { affected } = await this.repository.delete(id);
+    if (affected) {
+      return affected;
+    }
+
+    return 0;
   }
 
   async findById(id: number): Promise<Users> {

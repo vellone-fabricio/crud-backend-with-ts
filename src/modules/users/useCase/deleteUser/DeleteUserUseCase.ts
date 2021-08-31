@@ -10,13 +10,11 @@ class DeleteUserUseCase {
   ) {}
 
   async execute(id: number): Promise<void> {
-    const user = await this.userRepository.findById(id);
-
-    if (!user) {
-      throw new AppError("User not found!");
-    }
-
-    await this.userRepository.delete(id);
+    await this.userRepository.delete(id).then(affected => {
+      if (affected === 0) {
+        throw new AppError("User not found!");
+      }
+    });
   }
 }
 export { DeleteUserUseCase };
