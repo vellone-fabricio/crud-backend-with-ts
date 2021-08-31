@@ -12,6 +12,34 @@ class UsersRepository implements IUsersRepository {
     this.repository = getRepository(Users);
   }
 
+  private removePasswordFromPayload(userData: Users): Users {
+    const userWithoutPassword = {
+      id: userData.id,
+      full_name: userData.full_name,
+      email: userData.email,
+      birth_date: userData.birth_date,
+      city: userData.city,
+      state: userData.state,
+      education: userData.education,
+      isAdmin: userData.isAdmin,
+      created_at: userData.created_at,
+    } as Users;
+
+    return userWithoutPassword;
+  }
+
+  async update(updateData: Partial<IUsersDTO>, id: number): Promise<Users> {
+    const user = await this.repository.findOne(id);
+
+    const newUser = {
+      ...user,
+      ...updateData,
+    } as Users;
+    console.log(newUser);
+    await this.repository.save(newUser);
+    return this.removePasswordFromPayload(newUser);
+  }
+
   async list(filters: Partial<IUsersDTO>): Promise<Users[]> {
     const allFilteredUsers = await this.repository.find(filters);
 
@@ -30,19 +58,7 @@ class UsersRepository implements IUsersRepository {
   async findById(id: number): Promise<Users> {
     const user = (await this.repository.findOne(id)) as Users;
 
-    const response = {
-      id: user.id,
-      full_name: user.full_name,
-      email: user.email,
-      birth_date: user.birth_date,
-      city: user.city,
-      state: user.state,
-      education: user.education,
-      isAdmin: user.isAdmin,
-      created_at: user.created_at,
-    } as Users;
-
-    return response;
+    return this.removePasswordFromPayload(user);
   }
 
   async findByEmail(email: string): Promise<Users> {

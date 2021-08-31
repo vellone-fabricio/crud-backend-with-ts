@@ -5,6 +5,7 @@ import { CreateUserController } from "../modules/users/useCase/createUser/Create
 import { DeleteUserController } from "../modules/users/useCase/deleteUser/DeleteUserController";
 import { DetailUserController } from "../modules/users/useCase/detailUser/DetailUserController";
 import { ListUsersController } from "../modules/users/useCase/listUsers/ListUsersController";
+import { UpdateUserController } from "../modules/users/useCase/updateUser/UpdateUserController";
 
 const usersRoutes = Router();
 
@@ -17,6 +18,9 @@ usersRoutes.delete("/:id", deleteUserController.handle);
 
 const detailUserController = new DetailUserController();
 usersRoutes.get("/:id", detailUserController.handle);
+
+const updateUserController = new UpdateUserController();
+usersRoutes.post("/:id", updateUserController.handle);
 
 const listUsersController = new ListUsersController();
 usersRoutes.get("/", ensureIsAdmin, listUsersController.handle);
