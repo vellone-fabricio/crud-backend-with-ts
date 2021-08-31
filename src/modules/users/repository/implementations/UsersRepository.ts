@@ -4,7 +4,6 @@ import { IUsersDTO } from "../../dtos/IUsersDTO";
 import { Users } from "../../entities/Users";
 import { IUsersRepository } from "../IUsersRepository";
 
-const PG_UNIQUE_CONSTRAINT_VIOLATION = "23505";
 class UsersRepository implements IUsersRepository {
   private repository: Repository<Users>;
 
@@ -81,7 +80,7 @@ class UsersRepository implements IUsersRepository {
     try {
       await this.repository.save(user);
     } catch (err) {
-      if (err && err.code === PG_UNIQUE_CONSTRAINT_VIOLATION) {
+      if (err && err.code === process.env.PG_UNIQUE_CONSTRAINT_VIOLATION) {
         throw new AppError("Email already exists!");
       } else {
         throw new AppError("Unhandled error in creation", 500);
