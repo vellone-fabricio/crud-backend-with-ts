@@ -107,7 +107,51 @@
       "get": {
         "tags": ["User"],
         "summary": "Get all Users",
-        "description": "List all current Users in the DB",
+        "description": "List all current Users in the DB, but needs authentication, and you can filter by an existent field",
+        "parameters": [
+          {
+            "name": "full_name",
+            "in": "query",
+            "description": "Filter on user's name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Filter on user's email",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "birth_date",
+            "in": "query",
+            "description": "Filter on user's birth_date (dd/mm/yyyy)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Filter on user's state",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "description": "Filter on user's city",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "education",
+            "in": "query",
+            "description": "Filter on user's currently education",
+            "required": false,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successfull",
