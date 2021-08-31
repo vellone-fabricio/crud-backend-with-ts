@@ -30,7 +30,19 @@ class UsersRepository implements IUsersRepository {
   async findById(id: number): Promise<Users> {
     const user = (await this.repository.findOne(id)) as Users;
 
-    return user;
+    const response = {
+      id: user.id,
+      full_name: user.full_name,
+      email: user.email,
+      birth_date: user.birth_date,
+      city: user.city,
+      state: user.state,
+      education: user.education,
+      isAdmin: user.isAdmin,
+      created_at: user.created_at,
+    } as Users;
+
+    return response;
   }
 
   async findByEmail(email: string): Promise<Users> {
