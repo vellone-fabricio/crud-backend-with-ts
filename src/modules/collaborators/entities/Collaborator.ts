@@ -9,6 +9,7 @@ import {
 } from "typeorm";
 import { Companies } from "../../companies/entities/Companies";
 import { Users } from "../../users/entities/Users";
+import { JobPositions } from "./JobPositions";
 
 @Entity("collaborator")
 class Collaborator {
@@ -17,11 +18,15 @@ class Collaborator {
 
   @OneToOne(() => Users)
   @JoinColumn({ name: "user_id" })
-  user: Users;
+  user_id: number;
 
   @ManyToOne(() => Companies)
   @JoinColumn({ name: "company_id" })
-  company: Companies;
+  company_id: number;
+
+  @OneToOne(() => JobPositions)
+  @JoinColumn({ name: "job_position_id" })
+  job_position_id: number;
 
   @CreateDateColumn()
   created_at: Date;
