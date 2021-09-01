@@ -5,6 +5,7 @@ import { CreateCompanyController } from "../modules/companies/useCases/createCom
 import { DeleteCompanyController } from "../modules/companies/useCases/deleteCompany/DeleteCompanyController";
 import { ListAllCompaniesController } from "../modules/companies/useCases/listAllCompanies/ListAllCompaniesController";
 import { SelectOneCompanyController } from "../modules/companies/useCases/selectOneCompany/SelectOneCompanyController";
+import { UpdateCompanyController } from "../modules/companies/useCases/updateCompany/UpdateCompanyController";
 
 const companiesRoutes = Router();
 companiesRoutes.use(ensureAuthenticated);
@@ -13,8 +14,11 @@ const selectOneCompany = new SelectOneCompanyController();
 companiesRoutes.get("/:id", selectOneCompany.handle);
 
 companiesRoutes.use(ensureIsAdmin);
-const deleteCompanyUseCase = new DeleteCompanyController();
-companiesRoutes.delete("/:id", deleteCompanyUseCase.handle);
+const deleteCompanyUseController = new DeleteCompanyController();
+companiesRoutes.delete("/:id", deleteCompanyUseController.handle);
+
+const updateCompanyController = new UpdateCompanyController();
+companiesRoutes.post("/:updatedCompanyId", updateCompanyController.handle);
 
 const createCompanyController = new CreateCompanyController();
 companiesRoutes.post("/", createCompanyController.handle);

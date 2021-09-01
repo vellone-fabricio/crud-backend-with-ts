@@ -11,6 +11,22 @@ class CompaniesRepository implements ICompaniesRepository {
     this.repository = getRepository(Companies);
   }
 
+  async updateCompany(updateData: Partial<Companies>, id: number): Promise<Companies | undefined> {
+    const companyToUpdate = await this.repository.findOne(id);
+
+    if (!companyToUpdate) {
+      return companyToUpdate;
+    }
+    console.log(companyToUpdate);
+    const newCompanyInfo = {
+      ...companyToUpdate,
+      ...updateData,
+    } as Companies;
+    console.log(newCompanyInfo);
+    await this.repository.save(newCompanyInfo);
+    return newCompanyInfo;
+  }
+
   async getAllCompanies(filters: Partial<ICompaniesDTO>): Promise<Companies[]> {
     const allCompanies = await this.repository.find(filters);
 
