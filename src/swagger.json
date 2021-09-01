@@ -416,6 +416,104 @@
             "description": "Unhandled error in creation"
           }
         }
+      },
+      "get": {
+        "tags": ["Company"],
+        "summary": "Get all Companies",
+        "description": "List all current Companies in the DB, but needs authentication, and you can filter by an existent field",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Filter on company's name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "area",
+            "in": "query",
+            "description": "Filter on company's area",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "creation_date",
+            "in": "query",
+            "description": "Filter on company's creation_date (dd/mm/yyyy)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "Filter on company's description",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "director",
+            "in": "query",
+            "description": "Filter on company's director's name",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": 4,
+                    "name": "EngenhariaSA SA",
+                    "area": "Engenharia",
+                    "creation_date": "2020-12-09T00:00:00.000Z",
+                    "description": "setor de eng civil",
+                    "director": "Roberval",
+                    "created_at": "2021-09-01T16:33:36.078Z"
+                  },
+                  {
+                    "id": 6,
+                    "name": "EngenhariaSSA SA",
+                    "area": "Engenharia",
+                    "creation_date": "2020-12-09T00:00:00.000Z",
+                    "description": "setor de eng civil",
+                    "director": "Roberval",
+                    "created_at": "2021-09-01T17:52:42.418Z"
+                  },
+                  {
+                    "id": 7,
+                    "name": "s SA",
+                    "area": "Engenharia",
+                    "creation_date": "2020-12-09T00:00:00.000Z",
+                    "description": "setor de eng civil",
+                    "director": "Roberval",
+                    "created_at": "2021-09-01T17:52:45.344Z"
+                  },
+                  {
+                    "id": 8,
+                    "name": "sA SA",
+                    "area": "Engenharia",
+                    "creation_date": "2020-12-09T00:00:00.000Z",
+                    "description": "setor de eng civil",
+                    "director": "Roberval",
+                    "created_at": "2021-09-01T17:52:47.313Z"
+                  }
+                ]
+              }
+            }
+          },
+          "401": {
+            "description": "Token missing!"
+          },
+          "403": {
+            "description": "You don't have permission"
+          },
+          "500": {
+            "description": "Unhandled error"
+          }
+        }
       }
     },
     "/companies/{id}": {
