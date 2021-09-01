@@ -11,6 +11,12 @@ class CompaniesRepository implements ICompaniesRepository {
     this.repository = getRepository(Companies);
   }
 
+  async getAllCompanies(filters: Partial<ICompaniesDTO>): Promise<Companies[]> {
+    const allCompanies = await this.repository.find(filters);
+
+    return allCompanies;
+  }
+
   async selectOneCompany(id: number): Promise<Companies> {
     const company = (await this.repository.findOne(id)) as Companies;
 

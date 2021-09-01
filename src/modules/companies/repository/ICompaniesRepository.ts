@@ -5,4 +5,5 @@ export interface ICompaniesRepository {
   create(data: ICompaniesDTO): Promise<void>;
   delete(id: number): Promise<number>;
   selectOneCompany(id: number): Promise<Companies>;
+  getAllCompanies(filters: Partial<ICompaniesDTO>): Promise<Companies[]>;
 }
