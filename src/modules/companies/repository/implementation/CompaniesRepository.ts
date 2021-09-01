@@ -11,6 +11,12 @@ class CompaniesRepository implements ICompaniesRepository {
     this.repository = getRepository(Companies);
   }
 
+  async selectOneCompany(id: number): Promise<Companies> {
+    const company = (await this.repository.findOne(id)) as Companies;
+
+    return company;
+  }
+
   async delete(id: number): Promise<number> {
     const { affected } = await this.repository.delete(id);
     if (affected) {
