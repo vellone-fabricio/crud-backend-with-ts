@@ -214,7 +214,7 @@
       "delete": {
         "tags": ["User"],
         "summary": "Delete an User",
-        "description": "Delete an User in the DB",
+        "description": "Delete an User in the DB, only if you are admin",
         "responses": {
           "200": {
             "description": "Successfull"
@@ -236,19 +236,17 @@
             "description": "Successfull",
             "content": {
               "application/json": {
-                "example": [
-                  {
-                    "id": 33,
-                    "full_name": "Fabricio Vellone",
-                    "email": "fabriciovellone1@gmail.com",
-                    "birth_date": "17/09/1996",
-                    "state": "Sao Paulo",
-                    "city": "Monte Alto",
-                    "education": "mestrado",
-                    "isAdmin": false,
-                    "created_at": "2021-08-30T23:57:53.685Z"
-                  }
-                ]
+                "example": {
+                  "id": 33,
+                  "full_name": "Fabricio Vellone",
+                  "email": "fabriciovellone1@gmail.com",
+                  "birth_date": "17/09/1996",
+                  "state": "Sao Paulo",
+                  "city": "Monte Alto",
+                  "education": "mestrado",
+                  "isAdmin": false,
+                  "created_at": "2021-08-30T23:57:53.685Z"
+                }
               }
             }
           },
@@ -424,7 +422,7 @@
       "delete": {
         "tags": ["Company"],
         "summary": "Delete a Company",
-        "description": "Delete a Company in the DB",
+        "description": "Delete a Company in the DB, only if you are admin",
         "responses": {
           "200": {
             "description": "Successfull"
@@ -436,7 +434,39 @@
             "description": "Token missing!"
           }
         }
-      }
+      },
+      "get": {
+        "tags": ["Company"],
+        "summary": "List a specific company",
+        "description": "Get a specific company in the DB, only if you are an Admin",
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": 4,
+                  "name": "EngenhariaSA SA",
+                  "area": "Engenharia",
+                  "creation_date": "2020-12-09T00:00:00.000Z",
+                  "description": "setor de eng civil",
+                  "director": "Roberval",
+                  "created_at": "2021-09-01T16:33:36.078Z"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Token missing!"
+          },
+          "403": {
+            "description": "You don't have permission"
+          },
+          "500": {
+            "description": "Unhandled error in creation"
+          }
+        }
+        }
     }
   }
 }
