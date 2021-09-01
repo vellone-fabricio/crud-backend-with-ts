@@ -6,15 +6,16 @@ import { DeleteCompanyController } from "../modules/companies/useCases/deleteCom
 import { SelectOneCompanyController } from "../modules/companies/useCases/selectOneCompany/SelectOneCompanyController";
 
 const companiesRoutes = Router();
-
 companiesRoutes.use(ensureAuthenticated);
-const createCompanyController = new CreateCompanyController();
-companiesRoutes.post("/", ensureIsAdmin, createCompanyController.handle);
-
-const deleteCompanyUseCase = new DeleteCompanyController();
-companiesRoutes.delete("/:id", ensureIsAdmin, deleteCompanyUseCase.handle);
 
 const selectOneCompany = new SelectOneCompanyController();
-companiesRoutes.get("/:id", ensureIsAdmin, selectOneCompany.handle);
+companiesRoutes.get("/:id", selectOneCompany.handle);
+
+companiesRoutes.use(ensureIsAdmin);
+const createCompanyController = new CreateCompanyController();
+companiesRoutes.post("/", createCompanyController.handle);
+
+const deleteCompanyUseCase = new DeleteCompanyController();
+companiesRoutes.delete("/:id", deleteCompanyUseCase.handle);
 
 export { companiesRoutes };
