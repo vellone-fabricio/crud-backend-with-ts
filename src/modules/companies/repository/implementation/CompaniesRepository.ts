@@ -11,6 +11,15 @@ class CompaniesRepository implements ICompaniesRepository {
     this.repository = getRepository(Companies);
   }
 
+  async delete(id: number): Promise<number> {
+    const { affected } = await this.repository.delete(id);
+    if (affected) {
+      return affected;
+    }
+
+    return 0;
+  }
+
   async create(data: ICompaniesDTO): Promise<void> {
     const { name, area, creation_date, description, director } = data;
     const company = this.repository.create({
