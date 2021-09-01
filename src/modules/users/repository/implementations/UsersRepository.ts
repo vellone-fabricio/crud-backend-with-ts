@@ -27,8 +27,12 @@ class UsersRepository implements IUsersRepository {
     return userWithoutPassword;
   }
 
-  async update(updateData: Partial<IUsersDTO>, id: number): Promise<Users> {
+  async update(updateData: Partial<IUsersDTO>, id: number): Promise<Users | undefined> {
     const user = await this.repository.findOne(id);
+
+    if (!user) {
+      return user;
+    }
 
     const newUser = {
       ...user,

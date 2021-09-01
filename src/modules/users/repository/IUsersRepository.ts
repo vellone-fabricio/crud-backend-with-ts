@@ -4,7 +4,7 @@ import { Users } from "../entities/Users";
 type TypePartialUsers = Partial<IUsersDTO>;
 interface IUsersRepository {
   create(data: IUsersDTO): Promise<void>;
-  update(updateData: TypePartialUsers, id: number): Promise<Users>;
+  update(updateData: TypePartialUsers, id: number): Promise<Users | undefined>;
   delete(id: number): Promise<number>;
   list(filters: TypePartialUsers): Promise<Users[]>;
   findByEmail(email: string): Promise<Users>;
