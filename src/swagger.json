@@ -634,6 +634,138 @@
         }
       }
     }
+    },
+    "/collaborators": {
+      "post": {
+        "tags": ["Collaborator"],
+        "summary": "Link a Collaborator (User) to a company, you need to be a system Admin or Manager rights to do it",
+        "description": "Create a new Collaborator in DB",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "type": "integer"
+                  },
+                  "company_id": {
+                    "type": "integer"
+                  },
+                  "job_position_id": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "user_id": "1",
+                "company_id": "2",
+                "job_position_id": "3"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Token missing"
+          },
+          "400": {
+            "description": "Admin can't be a collaborator"
+          },
+          "500": {
+            "description": "Unhandled error server error - {explicative message}"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Collaborator"],
+        "summary": "Unlink (delete) a Collaborator",
+        "description": "Delete a Collaborator in the DB, only if you are admin or his managers",
+        "responses": {
+          "200": {
+            "description": "Successfull"
+          },
+          "400": {
+            "description": "Collaborator not found!"
+          },
+          "401": {
+            "description": "Token missing!"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Collaborator"],
+        "summary": "Get all Collaborators of an Enterprise",
+        "description": "List all current collaborator for that company in the DB, but it needs the correct rights",
+        "parameters": [
+          {
+            "name": "full_name",
+            "in": "query",
+            "description": "Filter on user's name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Filter on user's email",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "birth_date",
+            "in": "query",
+            "description": "Filter on user's birth_date (dd/mm/yyyy)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Filter on user's state",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "description": "Filter on user's city",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "education",
+            "in": "query",
+            "description": "Filter on user's currently education",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "content": {
+              "application/json": {
+                "example": [
+
+                ]
+              }
+            }
+          },
+          "401": {
+            "description": "Token missing!"
+          },
+          "403": {
+            "description": "You don't have permission"
+          },
+          "500": {
+            "description": "Unhandled error"
+          }
+        }
+      }
     }
   }
 }
