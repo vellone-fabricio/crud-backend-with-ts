@@ -368,6 +368,57 @@
             }
           }
       }
+    },
+    "/compannies": {
+      "post": {
+        "tags": ["Company"],
+        "summary": "Create a Company",
+        "description": "Create a new Company in the DB",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "area": {
+                    "type": "string"
+                  },
+                  "creation_date": {
+                    "type": "date"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "director": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "name": "Engheiros SA",
+                "area": "Engenharia",
+                "creation_date": "12-09-2020",
+                "description": "setor de eng civil",
+                "director": "Roberval Almeida"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Company's name already exists!"
+          },
+          "500": {
+            "description": "Unhandled error in creation"
+          }
+        }
+      }
     }
   }
 }
