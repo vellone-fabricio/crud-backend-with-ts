@@ -369,7 +369,7 @@
           }
       }
     },
-    "/compannies": {
+    "/companies": {
       "post": {
         "tags": ["Company"],
         "summary": "Create a Company",
@@ -416,6 +416,24 @@
           },
           "500": {
             "description": "Unhandled error in creation"
+          }
+        }
+      }
+    },
+    "/companies/{id}": {
+      "delete": {
+        "tags": ["Company"],
+        "summary": "Delete a Company",
+        "description": "Delete a Company in the DB",
+        "responses": {
+          "200": {
+            "description": "Successfull"
+          },
+          "400": {
+            "description": "Company not found!"
+          },
+          "401": {
+            "description": "Token missing!"
           }
         }
       }
