@@ -17,12 +17,12 @@ class CompaniesRepository implements ICompaniesRepository {
     if (!companyToUpdate) {
       return companyToUpdate;
     }
-    console.log(companyToUpdate);
+
     const newCompanyInfo = {
       ...companyToUpdate,
       ...updateData,
     } as Companies;
-    console.log(newCompanyInfo);
+
     await this.repository.save(newCompanyInfo);
     return newCompanyInfo;
   }

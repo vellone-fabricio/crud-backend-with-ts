@@ -261,110 +261,110 @@
           }
         }
         },
-        "post": {
-          "tags": ["User"],
-          "summary": "Update an User",
-          "description": "Update the infos about one User in the DB, admins can update all users, otherwise you can update your own informatioon",
-          "parameters": [
-            {
-              "name": "full_name",
-              "in": "body",
-              "description": "Update user's name",
-              "required": false,
-              "type": "string"
-            },
-            {
-              "name": "email",
-              "in": "body",
-              "description": "Update user's email",
-              "required": false,
-              "type": "string"
-            },
-            {
-              "name": "birth_date",
-              "in": "body",
-              "description": "Update user's birth_date (dd/mm/yyyy)",
-              "required": false,
-              "type": "string"
-            },
-            {
-              "name": "state",
-              "in": "body",
-              "description": "Update user's state",
-              "required": false,
-              "type": "string"
-            },
-            {
-              "name": "city",
-              "in": "body",
-              "description": "Update user's city",
-              "required": false,
-              "type": "string"
-            },
-            {
-              "name": "education",
-              "in": "body",
-              "description": "Update user's currently education",
-              "required": false,
-              "type": "string"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successfull",
-              "content": {
-                "application/json": {
-                  "example": [
-                    {
-                      "id": 33,
-                      "full_name": "Fabricio Vellone",
-                      "email": "fabriciovellone1@gmail.com",
-                      "password": "$2b$08$aDhkgpr6/r8e1S.Hs.W5ROkXeNgVQLLWgPTE3SGJCU8LBsw.HIxNK",
-                      "birth_date": "17/09/1996",
-                      "state": "Sao Paulo",
-                      "city": "Monte Alto",
-                      "education": "mestrado",
-                      "isAdmin": false,
-                      "created_at": "2021-08-30T23:57:53.685Z"
-                    },
-                    {
-                      "id": 34,
-                      "full_name": "Fabricio Vellone",
-                      "email": "fabriciovellone2@gmail.com",
-                      "password": "$2b$08$8oB7swGeX7tpl7wy/up/TOPLD7On7DR3DwVmG/BSxFlHUO64FCOZa",
-                      "birth_date": "17/09/1996",
-                      "state": "Sao Paulo",
-                      "city": "Monte Alto",
-                      "education": "mestrado",
-                      "isAdmin": false,
-                      "created_at": "2021-08-30T23:57:56.118Z"
-                    },
-                    {
-                      "id": 31,
-                      "full_name": "Fabricio Vellone",
-                      "email": "fabriciovellone@gmail.com",
-                      "password": "$2b$08$ZVtm.ada00OGhQb5dzcAG.J/PGBL/eb7OQ.aKJWz5k7pCeZxPHSJS",
-                      "birth_date": "17/09/1996",
-                      "state": "Sao Paulo",
-                      "city": "Monte Alto",
-                      "education": "mestrado",
-                      "isAdmin": true,
-                      "created_at": "2021-08-30T23:41:10.589Z"
-                    }
-                  ]
-                }
-              }
-            },
-            "401": {
-              "description": "Token missing!"
-            },
-            "403": {
-              "description": "You don't have permission"
-            },
-            "500": {
-              "description": "Unhandled error in creation"
-            }
+      "post": {
+        "tags": ["User"],
+        "summary": "Update an User",
+        "description": "Update the infos about one User in the DB, admins can update all users, otherwise you can update your own informatioon",
+        "parameters": [
+          {
+            "name": "full_name",
+            "in": "body",
+            "description": "Update user's name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "body",
+            "description": "Update user's email",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "birth_date",
+            "in": "body",
+            "description": "Update user's birth_date (dd/mm/yyyy)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "state",
+            "in": "body",
+            "description": "Update user's state",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "city",
+            "in": "body",
+            "description": "Update user's city",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "education",
+            "in": "body",
+            "description": "Update user's currently education",
+            "required": false,
+            "type": "string"
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": 33,
+                    "full_name": "Fabricio Vellone",
+                    "email": "fabriciovellone1@gmail.com",
+                    "password": "$2b$08$aDhkgpr6/r8e1S.Hs.W5ROkXeNgVQLLWgPTE3SGJCU8LBsw.HIxNK",
+                    "birth_date": "17/09/1996",
+                    "state": "Sao Paulo",
+                    "city": "Monte Alto",
+                    "education": "mestrado",
+                    "isAdmin": false,
+                    "created_at": "2021-08-30T23:57:53.685Z"
+                  },
+                  {
+                    "id": 34,
+                    "full_name": "Fabricio Vellone",
+                    "email": "fabriciovellone2@gmail.com",
+                    "password": "$2b$08$8oB7swGeX7tpl7wy/up/TOPLD7On7DR3DwVmG/BSxFlHUO64FCOZa",
+                    "birth_date": "17/09/1996",
+                    "state": "Sao Paulo",
+                    "city": "Monte Alto",
+                    "education": "mestrado",
+                    "isAdmin": false,
+                    "created_at": "2021-08-30T23:57:56.118Z"
+                  },
+                  {
+                    "id": 31,
+                    "full_name": "Fabricio Vellone",
+                    "email": "fabriciovellone@gmail.com",
+                    "password": "$2b$08$ZVtm.ada00OGhQb5dzcAG.J/PGBL/eb7OQ.aKJWz5k7pCeZxPHSJS",
+                    "birth_date": "17/09/1996",
+                    "state": "Sao Paulo",
+                    "city": "Monte Alto",
+                    "education": "mestrado",
+                    "isAdmin": true,
+                    "created_at": "2021-08-30T23:41:10.589Z"
+                  }
+                ]
+              }
+            }
+          },
+          "401": {
+            "description": "Token missing!"
+          },
+          "403": {
+            "description": "You don't have permission"
+          },
+          "500": {
+            "description": "Unhandled error in creation"
+          }
+        }
       }
     },
     "/companies": {
@@ -564,7 +564,76 @@
             "description": "Unhandled error in creation"
           }
         }
+        },
+      "post": {
+      "tags": ["Company"],
+      "summary": "Update a Company",
+      "description": "Update the infos about one Company in the DB, only admins can edit companies",
+      "parameters": [
+        {
+          "name": "name",
+          "in": "body",
+          "description": "Update company's name",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "area",
+          "in": "body",
+          "description": "Update company's area",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "creation_date",
+          "in": "body",
+          "description": "Update company's creation_date (dd/mm/yyyy)",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "in": "body",
+          "description": "Update company's description",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "director",
+          "in": "body",
+          "description": "Update company's director's name",
+          "required": false,
+          "type": "string"
         }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successfull",
+          "content": {
+            "application/json": {
+              "example": {
+                "id": 4,
+                "name": "sAF SA",
+                "area": "Engenharia",
+                "creation_date": "2020-12-09T00:00:00.000Z",
+                "description": "setor de eng civil",
+                "director": "RobervSal",
+                "created_at": "2021-09-01T16:33:36.078Z"
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "Token missing!"
+        },
+        "403": {
+          "description": "You don't have permission"
+        },
+        "500": {
+          "description": "Internal Server Error"
+        }
+      }
+    }
     }
   }
 }
