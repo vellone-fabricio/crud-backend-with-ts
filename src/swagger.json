@@ -682,7 +682,7 @@
       },
       "delete": {
         "tags": ["Collaborator"],
-        "summary": "Unlink (delete) a Collaborator",
+        "summary": "[NotImplementedYet] Unlink (delete) a Collaborator",
         "description": "Delete a Collaborator in the DB, only if you are admin or his managers",
         "responses": {
           "200": {
@@ -698,7 +698,7 @@
       },
       "get": {
         "tags": ["Collaborator"],
-        "summary": "Get all Collaborators of an Enterprise",
+        "summary": "[NotImplementedYet] Get all Collaborators of an Enterprise",
         "description": "List all current collaborator for that company in the DB, but it needs the correct rights",
         "parameters": [
           {
