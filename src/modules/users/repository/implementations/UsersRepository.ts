@@ -61,6 +61,10 @@ class UsersRepository implements IUsersRepository {
   async findById(id: number): Promise<User> {
     const user = (await this.repository.findOne(id)) as User;
 
+    if (!user) {
+      return user;
+    }
+
     return this.removePasswordFromPayload(user);
   }
 
