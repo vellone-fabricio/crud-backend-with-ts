@@ -84,7 +84,7 @@
                 "full_name": "Fabricio Vellone",
                 "email": "fabriciovellone@gmail.com",
                 "password": "1234",
-                "birth_date": "17/09/1996",
+                "birth_date": "1996-09-17",
                 "state": "Sao Paulo",
                 "city": "Monte Alto",
                 "education": "mestrado"
@@ -126,7 +126,7 @@
           {
             "name": "birth_date",
             "in": "query",
-            "description": "Filter on user's birth_date (dd/mm/yyyy)",
+            "description": "Filter on user's birth_date (yyy-mm-dd)",
             "required": false,
             "type": "string"
           },
@@ -163,7 +163,7 @@
                     "full_name": "Fabricio Vellone",
                     "email": "fabriciovellone1@gmail.com",
                     "password": "$2b$08$aDhkgpr6/r8e1S.Hs.W5ROkXeNgVQLLWgPTE3SGJCU8LBsw.HIxNK",
-                    "birth_date": "17/09/1996",
+                    "birth_date": "1996-09-17",
                     "state": "Sao Paulo",
                     "city": "Monte Alto",
                     "education": "mestrado",
@@ -175,7 +175,7 @@
                     "full_name": "Fabricio Vellone",
                     "email": "fabriciovellone2@gmail.com",
                     "password": "$2b$08$8oB7swGeX7tpl7wy/up/TOPLD7On7DR3DwVmG/BSxFlHUO64FCOZa",
-                    "birth_date": "17/09/1996",
+                    "birth_date": "1996-09-17",
                     "state": "Sao Paulo",
                     "city": "Monte Alto",
                     "education": "mestrado",
@@ -187,7 +187,7 @@
                     "full_name": "Fabricio Vellone",
                     "email": "fabriciovellone@gmail.com",
                     "password": "$2b$08$ZVtm.ada00OGhQb5dzcAG.J/PGBL/eb7OQ.aKJWz5k7pCeZxPHSJS",
-                    "birth_date": "17/09/1996",
+                    "birth_date": "1996-09-17",
                     "state": "Sao Paulo",
                     "city": "Monte Alto",
                     "education": "mestrado",
@@ -240,7 +240,7 @@
                   "id": 33,
                   "full_name": "Fabricio Vellone",
                   "email": "fabriciovellone1@gmail.com",
-                  "birth_date": "17/09/1996",
+                  "birth_date": "1996-09-17",
                   "state": "Sao Paulo",
                   "city": "Monte Alto",
                   "education": "mestrado",
@@ -283,7 +283,7 @@
           {
             "name": "birth_date",
             "in": "body",
-            "description": "Update user's birth_date (dd/mm/yyyy)",
+            "description": "Update user's birth_date (yyy-mm-dd)",
             "required": false,
             "type": "string"
           },
@@ -320,7 +320,7 @@
                     "full_name": "Fabricio Vellone",
                     "email": "fabriciovellone1@gmail.com",
                     "password": "$2b$08$aDhkgpr6/r8e1S.Hs.W5ROkXeNgVQLLWgPTE3SGJCU8LBsw.HIxNK",
-                    "birth_date": "17/09/1996",
+                    "birth_date": "1996-09-17",
                     "state": "Sao Paulo",
                     "city": "Monte Alto",
                     "education": "mestrado",
@@ -332,7 +332,7 @@
                     "full_name": "Fabricio Vellone",
                     "email": "fabriciovellone2@gmail.com",
                     "password": "$2b$08$8oB7swGeX7tpl7wy/up/TOPLD7On7DR3DwVmG/BSxFlHUO64FCOZa",
-                    "birth_date": "17/09/1996",
+                    "birth_date": "1996-09-17",
                     "state": "Sao Paulo",
                     "city": "Monte Alto",
                     "education": "mestrado",
@@ -344,7 +344,7 @@
                     "full_name": "Fabricio Vellone",
                     "email": "fabriciovellone@gmail.com",
                     "password": "$2b$08$ZVtm.ada00OGhQb5dzcAG.J/PGBL/eb7OQ.aKJWz5k7pCeZxPHSJS",
-                    "birth_date": "17/09/1996",
+                    "birth_date": "1996-09-17",
                     "state": "Sao Paulo",
                     "city": "Monte Alto",
                     "education": "mestrado",
@@ -439,7 +439,7 @@
           {
             "name": "creation_date",
             "in": "query",
-            "description": "Filter on company's creation_date (dd/mm/yyyy)",
+            "description": "Filter on company's creation_date (yyy-mm-dd)",
             "required": false,
             "type": "string"
           },
@@ -587,7 +587,7 @@
         {
           "name": "creation_date",
           "in": "body",
-          "description": "Update company's creation_date (dd/mm/yyyy)",
+          "description": "Update company's creation_date (yyy-mm-dd)",
           "required": false,
           "type": "string"
         },
@@ -676,7 +676,7 @@
             "description": "Admin can't be a collaborator"
           },
           "500": {
-            "description": "Unhandled error server error - {explicative message}"
+            "description": "Unhandled error server - {explicative message}"
           }
         }
       },
@@ -718,7 +718,7 @@
           {
             "name": "birth_date",
             "in": "query",
-            "description": "Filter on user's birth_date (dd/mm/yyyy)",
+            "description": "Filter on user's birth_date (yyy-mm-dd)",
             "required": false,
             "type": "string"
           },
