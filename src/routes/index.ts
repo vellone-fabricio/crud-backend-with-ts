@@ -9,6 +9,6 @@ const router = Router();
 router.use("/users", usersRoutes);
 router.use("/companies", companiesRoutes);
 router.use("/collaborators", collaboratorsRoutes);
-router.use(authenticateRoutes);
+router.use("/sessions", authenticateRoutes);
 
 export default router;
