@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 import { AppError } from "../../../../errors/AppError";
 import { IUsersDTO } from "../../dtos/IUsersDTO";
-import { Users } from "../../entities/Users";
+import { User } from "../../entities/User";
 import { IUsersRepository } from "../../repository/IUsersRepository";
 
 const POSSIBLE_FILTERS = ["full_name", "email", "birth_date", "state", "city", "education"];
@@ -12,7 +12,7 @@ class ListUsersUseCase {
     private usersRepository: IUsersRepository,
   ) {}
 
-  async execute(filters: Partial<IUsersDTO>): Promise<Users[]> {
+  async execute(filters: Partial<IUsersDTO>): Promise<User[]> {
     let hasWrongFilter = false;
 
     Object.keys(filters).forEach(field => {

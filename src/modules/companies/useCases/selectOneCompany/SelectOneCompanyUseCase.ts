@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
 import { AppError } from "../../../../errors/AppError";
-import { Companies } from "../../entities/Companies";
+import { Company } from "../../entities/Company";
 import { CompaniesRepository } from "../../repository/implementation/CompaniesRepository";
 
 @injectable()
@@ -10,7 +10,7 @@ class SelectOneCompanyUseCase {
     private companiesRepository: CompaniesRepository,
   ) {}
 
-  async execute(id: number): Promise<Companies> {
+  async execute(id: number): Promise<Company> {
     const company = await this.companiesRepository.selectOneCompany(id);
     if (!company) {
       throw new AppError("Company not found");

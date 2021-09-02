@@ -1,4 +1,4 @@
-import { TypeEducationEnum } from "../entities/Users";
+import { UserEducation } from "../entities/User";
 
 export interface IUsersDTO {
   full_name: string;
@@ -7,5 +7,5 @@ export interface IUsersDTO {
   birth_date: string;
   state: string;
   city: string;
-  education: TypeEducationEnum;
+  education: UserEducation;
 }

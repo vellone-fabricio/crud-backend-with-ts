@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
 import { AppError } from "../../../../errors/AppError";
-import { Users } from "../../entities/Users";
+import { User } from "../../entities/User";
 import { IUsersRepository } from "../../repository/IUsersRepository";
 
 @injectable()
@@ -10,7 +10,7 @@ class DetailUserUseCase {
     private usersRepository: IUsersRepository,
   ) {}
 
-  async execute(usersId: number, searchedId: number, isAdmin: boolean): Promise<Users> {
+  async execute(usersId: number, searchedId: number, isAdmin: boolean): Promise<User> {
     const user = await this.usersRepository.findById(searchedId);
 
     if (!isAdmin && !(user.id === usersId)) {

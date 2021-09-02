@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 import { AppError } from "../../../../errors/AppError";
 import { IUsersDTO } from "../../dtos/IUsersDTO";
-import { Users } from "../../entities/Users";
+import { User } from "../../entities/User";
 import { IUsersRepository } from "../../repository/IUsersRepository";
 
 type IRequest = Partial<IUsersDTO>;
@@ -16,7 +16,7 @@ class UpdateUserUseCase {
     private usersRepository: IUsersRepository,
   ) {}
 
-  async execute(updateData: IRequest, id: number, requestUser: IRequestUser): Promise<Users> {
+  async execute(updateData: IRequest, id: number, requestUser: IRequestUser): Promise<User> {
     // TODO - tratar password hash aqui se no payload
     const user = await this.usersRepository.update(updateData, id);
 

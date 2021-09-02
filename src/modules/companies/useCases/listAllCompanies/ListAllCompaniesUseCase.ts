@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
 import { AppError } from "../../../../errors/AppError";
-import { Companies } from "../../entities/Companies";
+import { Company } from "../../entities/Company";
 import { ICompaniesRepository } from "../../repository/ICompaniesRepository";
 
 interface IRequestFilters {
@@ -19,7 +19,7 @@ class ListAllCompaniesUseCase {
     private companiesRepository: ICompaniesRepository,
   ) {}
 
-  async execute(filters: IRequestFilters): Promise<Companies[]> {
+  async execute(filters: IRequestFilters): Promise<Company[]> {
     let hasWrongFilter = false;
 
     Object.keys(filters).forEach(field => {

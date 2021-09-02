@@ -1,4 +1,5 @@
 import {
+  Column,
   CreateDateColumn,
   Entity,
   JoinColumn,
@@ -7,26 +8,28 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { Companies } from "../../companies/entities/Companies";
-import { Users } from "../../users/entities/Users";
-import { JobPositions } from "./JobPositions";
+import { Company } from "../../companies/entities/Company";
+import { User } from "../../users/entities/User";
 
+export type JobPosition = "Diretor" | "Gestor" | "Empregado";
 @Entity("collaborator")
 class Collaborator {
-  @PrimaryGeneratedColumn()
-  id: string;
+  @PrimaryGeneratedColumn("increment")
+  id: number;
 
-  @OneToOne(() => Users)
+  @OneToOne(type => User, collaborator => Collaborator)
   @JoinColumn({ name: "user_id" })
-  user_id: number;
+  user: User;
 
-  @ManyToOne(() => Companies)
-  @JoinColumn({ name: "company_id" })
-  company_id: number;
+  @ManyToOne(type => Company, collaborators => Collaborator)
+  @JoinColumn({ name: "company_id " })
+  company: Company;
 
-  @OneToOne(() => JobPositions)
-  @JoinColumn({ name: "job_position_id" })
-  job_position_id: number;
+  @Column({
+    type: "enum",
+    enum: ["Diretor", "Gestor", "Empregado"],
+  })
+  job_position: JobPosition;
 
   @CreateDateColumn()
   created_at: Date;

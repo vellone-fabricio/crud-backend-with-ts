@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
 import { AppError } from "../../../../errors/AppError";
-import { Companies } from "../../entities/Companies";
+import { Company } from "../../entities/Company";
 import { ICompaniesRepository } from "../../repository/ICompaniesRepository";
 
 interface IRequestedData {
@@ -18,8 +18,8 @@ class UpdateCompanyUseCase {
     private companiesRepository: ICompaniesRepository,
   ) {}
 
-  async execute(dataToUpdate: IRequestedData, idToUpdate: number): Promise<Companies> {
-    const updatedCompany = (await this.companiesRepository.updateCompany(dataToUpdate, idToUpdate)) as Companies;
+  async execute(dataToUpdate: IRequestedData, idToUpdate: number): Promise<Company> {
+    const updatedCompany = (await this.companiesRepository.updateCompany(dataToUpdate, idToUpdate)) as Company;
 
     if (!updatedCompany) {
       throw new AppError("Company not found");
