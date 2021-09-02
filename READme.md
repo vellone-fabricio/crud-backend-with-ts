@@ -6,7 +6,12 @@
 ```
 yarn install
 ```
-- Em seguida, é possivel inicializar projeto através do arquivo Makefile
+ou
+```
+make install
+```
+- Em seguida, é possivel inicializar projeto através do arquivo Makefile:
+  - ```make start``` e ```make stop```
   - Também é possivel lançar os containers com o seguinte comando na raiz do projeto:
     ```
     docker-compose up -d && yarn typeorm migration:run
