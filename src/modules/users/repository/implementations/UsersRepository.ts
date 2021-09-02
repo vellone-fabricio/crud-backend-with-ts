@@ -45,8 +45,8 @@ class UsersRepository implements IUsersRepository {
 
   async list(filters: Partial<IUsersDTO>): Promise<User[]> {
     const allFilteredUsers = await this.repository.find(filters);
-
-    return allFilteredUsers;
+    const userWithoutPassword = allFilteredUsers.map(user => this.removePasswordFromPayload(user));
+    return userWithoutPassword;
   }
 
   async delete(id: number): Promise<number> {
