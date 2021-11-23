@@ -11,4 +11,5 @@ router.use("/companies", companiesRoutes);
 router.use("/collaborators", collaboratorsRoutes);
 router.use("/sessions", authenticateRoutes);
 
+console.log("test");
 export default router;
